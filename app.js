@@ -31,10 +31,16 @@ app.get('/campgrounds', async (request, response) => {
     response.render('campgrounds/index', {campgrounds})
 })
 
+app.get('/campgrounds/new', async (request, response) => {
+    response.render('campgrounds/new')
+})
+
+
 app.get('/campgrounds/:id', async (request, response) => {
     const campground = await Campground.findById(request.params.id)
     response.render('campgrounds/show', {campground})
 })
+
 
 app.listen(8000, () => {
     console.log('Listening on port 8000')
