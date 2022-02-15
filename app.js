@@ -23,12 +23,17 @@ app.get('/', (request, response) => {
 })
 
 app.get('/make', async (request, response) => {
-    const camp = Campground({
-        title : 'My Backyard',
-        description : 'cheap camping',
-    })
-    await camp.save()
-    response.send(camp)
+    response.render('home')
+})
+
+app.get('/campgrounds', async (request, response) => {
+    const campgrounds = await Campground.find({})
+    response.render('campgrounds/index', {campgrounds})
+})
+
+app.get('/campgrounds/:id', async (request, response) => {
+    const campground = await Campground.findById(request.params.id)
+    response.render('campgrounds/show', {campground})
 })
 
 app.listen(8000, () => {
