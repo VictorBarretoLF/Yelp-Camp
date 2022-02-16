@@ -72,8 +72,6 @@ app.delete('/campgrounds/:id', async (request, response) => {
 
 
 
-
-
 app.listen(8000, () => {
     console.log('Listening on port 8000')
 })
