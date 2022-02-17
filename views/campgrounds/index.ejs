@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <%- include('../components/headMeta.ejs') %>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/navbar.css">   
     <title>Document</title>
 </head>
 <body>
-    <a href="/campgrounds/new">Add New Campground</a>
+    <%- include('../components/navbar.ejs') %>
 
     <main class="main-container">
         <h1>All Campgrounds</h1>

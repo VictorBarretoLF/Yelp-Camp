@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: dodgerblue;
+  margin: 0;
+}
+
+.main-container {
+  margin-top: 70px;
 }
