@@ -4,7 +4,6 @@ const path = require('path')
 const mongoose = require('mongoose')
 const { Campground } = require('./models/campground')
 const methodOverride = require('method-override')
-const { response } = require('express')
 
 async function main(){
     try {
@@ -19,6 +18,8 @@ main()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname + '/views'))
+
+app.use(express.static(path.join(__dirname + '/styles')))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
