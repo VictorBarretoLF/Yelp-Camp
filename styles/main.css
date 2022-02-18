@@ -4,8 +4,21 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+/* MAIN CONTENT OF THE PAGE */
 
 .main-container {
   margin-top: 70px;
+  flex: 1;
+  border: 1px solid red;
+}
+
+/* FOOTER OF THE PAGE */
+.footer {
+  background-color: #292b2c;
 }
