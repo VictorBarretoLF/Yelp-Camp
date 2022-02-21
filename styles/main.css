@@ -15,10 +15,12 @@ body {
 .main-container {
   margin-top: 70px;
   flex: 1;
-  border: 1px solid red;
 }
 
 /* FOOTER OF THE PAGE */
 .footer {
   background-color: #292b2c;
+  height: 5em;
+  text-align: center;
+  color: #ebebeb;
 }
