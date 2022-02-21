@@ -2,15 +2,25 @@
 <html lang="en">
 <head>
     <%- include('../components/headMeta.ejs') %>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/navbar.css"> 
     <title>Document</title>
 </head>
 <body>
-    <h1><%= campground.title %></h1>
-    <h2><%= campground.location %></h2>
-    <a href="/campgrounds">Back</a>
-    <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-    <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-        <button>DELETE</button>
-    </form>
+    <%- include('../components/navbar.ejs') %>
+    <main class="main-container">
+        
+        <h1><%= campground.title %></h1>
+        <h2><%= campground.location %></h2>
+        <img src="<%= campground.image %>" alt="campground-image">
+        <p><%= campground.description %></p>
+        <a href="/campgrounds">Back</a>
+        <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+            <button>DELETE</button>
+        </form>
+    </main>
+    <%- include('../components/footer.ejs') %>
+
 </body>
 </html>
