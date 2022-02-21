@@ -24,3 +24,8 @@ body {
   text-align: center;
   color: #ebebeb;
 }
+
+/* STYLING THE IMAGES */
+img {
+  width: 200px;
+}

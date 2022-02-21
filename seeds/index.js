@@ -1,4 +1,3 @@
-const express = require('express')
 const mongoose = require('mongoose')
 const { Campground } = require('../models/campground')
 const cities = require('./cities')
@@ -21,18 +20,21 @@ const randomTitle = array => array[Math.floor(Math.random() * array.length)]
 const seedDB = async () => {
     await Campground.deleteMany({})
     const picLinks = await picturesLinks()
-    console.log(picLinks)
+    
     for (let i = 0; i < 50; i++){
         let random1000 = Math.floor(Math.random() * 1000)
+        let randomPrice = Math.floor(Math.random() * 50) + 10
         
         const camp = Campground({
             location : `${cities[random1000].city}, ${cities[random1000].state}`,
-            title : `${randomTitle(descriptors)} ${randomTitle(places)}`
+            title : `${randomTitle(descriptors)} ${randomTitle(places)}`,
+            image : picLinks[i],
+            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas molestias, impedit omnis expedita totam hic dolorum sit.',
+            price : randomPrice,
         })
         await camp.save()
     }
 }
-
 
 seedDB()
 .then( () => {
