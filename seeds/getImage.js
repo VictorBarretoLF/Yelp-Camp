@@ -12,12 +12,11 @@ async function getData(){
             // responseType : 'json'
         })
         // const data = await res.json()
-
+        console.log(res.data)
         return await res.data
     } catch (err){
         console.log('not ok')
-    }
-    
+    }   
 }
 
 async function picturesLinks(){
@@ -34,5 +33,3 @@ async function picturesLinks(){
 module.exports = {
     picturesLinks,
 }
-
-// fetchData()
