@@ -1,10 +1,9 @@
 const express = require('express')
-const app = express()
-const path = require('path')
 const mongoose = require('mongoose')
 const { Campground } = require('../models/campground')
 const cities = require('./cities')
 const { descriptors, places} = require('./seedHelpers')
+const { picturesLinks } = require('./getImage')
 
 async function main(){
     try {
@@ -21,9 +20,11 @@ const randomTitle = array => array[Math.floor(Math.random() * array.length)]
 
 const seedDB = async () => {
     await Campground.deleteMany({})
+    const picLinks = await picturesLinks()
+    console.log(picLinks)
     for (let i = 0; i < 50; i++){
         let random1000 = Math.floor(Math.random() * 1000)
-
+        
         const camp = Campground({
             location : `${cities[random1000].city}, ${cities[random1000].state}`,
             title : `${randomTitle(descriptors)} ${randomTitle(places)}`
