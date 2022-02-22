@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -8,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* MAIN CONTENT OF THE PAGE */
@@ -15,6 +18,7 @@ body {
 .main-container {
   margin-top: 70px;
   flex: 1;
+  padding: 0 20px;
 }
 
 /* FOOTER OF THE PAGE */
@@ -27,5 +31,47 @@ body {
 
 /* STYLING THE IMAGES */
 img {
-  width: 500px;
+  width: 100%;
+}
+
+/* CAMPGROUND CARD */
+
+.card {
+  border: 1px solid black;
+  max-width: 400px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.card-descriptions h2, .card-descriptions p {
+  margin: 0;
+}
+
+.card-descriptions h2 {
+  text-transform: uppercase;
+}
+
+.card-descriptions {
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
+  gap: 15px;
+}
+
+/* CARD BUTTON */
+.card-descriptions .btn {
+  padding: 10px 5px;
+  background-color: #292b2c8c;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.card-descriptions .btn a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
 }

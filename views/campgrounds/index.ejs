@@ -11,14 +11,25 @@
 
     <main class="main-container">
         <h1>All Campgrounds</h1>
-        <ul>
-            <% for (let campground of campgrounds){ %>
-            <a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a><br>
-            <% } %>
-        </ul>
+    
+        <% let column = 1 %>
+        <% for (let campground of campgrounds){ %>
+            <div class="card">
+                <img src="<%= campground.image %>" alt="campground-image">
+                <span class="card-descriptions">
+                    <h2><%= campground.title %></h2>
+                    <p><%= campground.description %></p>
+                    <small><%= campground.location %></small>
+                    <div class="btn">
+                        <a href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                    </div>
+                </span>
+            </div>
+            
+        <% } %>
+        
 
     </main>
-    
     <%- include('../components/footer.ejs') %>
 
 </body>

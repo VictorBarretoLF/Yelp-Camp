@@ -12,8 +12,14 @@
         
         <h1><%= campground.title %></h1>
         <h2><%= campground.location %></h2>
-        <img src="<%= campground.image %>" alt="campground-image">
-        <p><%= campground.description %></p>
+        <div class="card">
+            <img src="<%= campground.image %>" alt="campground-image">
+            <span class="card-descriptions">
+                <h2><%= campground.title %></h2>
+                <p><%= campground.description %></p>
+            </span>
+        </div>
+
         <a href="/campgrounds">Back</a>
         <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
         <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
