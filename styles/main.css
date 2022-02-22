@@ -75,3 +75,13 @@ img {
   color: white;
   font-size: 1.5em;
 }
+
+/* NEW FORM STYLE */
+.main-container-new {
+  margin-top: 70px;
+  flex: 1;
+  padding: 0 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
