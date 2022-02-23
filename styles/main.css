@@ -14,8 +14,7 @@ body {
 }
 
 /* MAIN CONTENT OF THE PAGE */
-
-.main-container {
+.main-container-index {
   margin-top: 70px;
   flex: 1;
   padding: 0 20px;
@@ -27,6 +26,13 @@ body {
   height: 5em;
   text-align: center;
   color: #ebebeb;
+}
+
+/* THE SECTION WITH ALL THE PICTURES INSIDE */
+.main-showcase-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* STYLING THE IMAGES */
@@ -85,6 +91,7 @@ img {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .form-container {
@@ -103,7 +110,7 @@ img {
   font-size: 1.5em;
 }
 
-.form-inputs input[type = "text"]{
+.form-inputs input[type = "text"], .form-inputs input[type = "textarea"]{
   outline: none;
   font-size: 1.2em;
   padding: 5px 10px;
@@ -139,3 +146,5 @@ img {
 .btn-back:hover {
   color: rgb(102, 51, 153);
 }
+
+/* TEXTAREA */
