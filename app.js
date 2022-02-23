@@ -41,10 +41,16 @@ app.get('/campgrounds/new', async (request, response) => {
 })
 
 app.post('/campgrounds', async (request, response) => {
-    const campground = await Campground(request.body.campground)
-    await campground.save()
-    console.log(campground)
-    response.redirect(`/campgrounds/${campground._id}`)
+    const {title, location, image, price, description} = request.body.campground
+
+    if (title && location && image && price && description){
+        const campground = await Campground(request.body.campground)
+        await campground.save()
+        response.redirect(`/campgrounds/${campground._id}`)
+    } else {
+        console.log('Missing Data')
+        response.redirect(`/campgrounds`)
+    }
 })
 
 // SEE JUST ONE CAMPGROUND INFORMATIONS
