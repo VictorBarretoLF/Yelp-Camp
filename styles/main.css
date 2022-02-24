@@ -82,7 +82,7 @@ img {
   font-size: 1.5em;
 }
 
-/* ================== NEW FORM STYLE======================== */
+/* ================== THIS IS THE STYLE FOR THE new.ejs PAGE ======================== */
 .main-container-new {
   margin-top: 70px;
   flex: 1;
@@ -146,5 +146,3 @@ img {
 .btn-back:hover {
   color: rgb(102, 51, 153);
 }
-
-/* TEXTAREA */
