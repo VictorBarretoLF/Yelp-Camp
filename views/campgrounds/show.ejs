@@ -8,15 +8,17 @@
 </head>
 <body>
     <%- include('../components/navbar.ejs') %>
-    <main class="main-container">
+    <main class="main-container-index">
         
-        <h1><%= campground.title %></h1>
-        <h2><%= campground.location %></h2>
         <div class="card">
             <img src="<%= campground.image %>" alt="campground-image">
             <span class="card-descriptions">
                 <h2><%= campground.title %></h2>
                 <p><%= campground.description %></p>
+                <small><%= campground.location %></small>
+                <div class="btn">
+                    <a href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                </div>
             </span>
         </div>
 
