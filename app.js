@@ -66,9 +66,16 @@ app.get('/campgrounds/:id/edit', async (request, response) => {
 })
 
 app.patch('/campgrounds/:id', async (request, response) => {
-    await Campground.updateOne({_id : request.params.id}, {$set : request.body.campground})
-    console.log(request.params.id)
-    response.redirect(`/campgrounds/${request.params.id}`)
+    const {title, location, image, price, description} = request.body.campground
+
+    if (title && location && image && price && description){
+        console.log(request.body.campground)
+        await Campground.updateOne({_id : request.params.id}, {$set : request.body.campground})
+        response.redirect(`/campgrounds/${request.params.id}`)
+    } else {
+        console.log('An error ocurred')
+        response.redirect(`/campgrounds`)
+    }   
 })
 
 // DELETE ROUTE
