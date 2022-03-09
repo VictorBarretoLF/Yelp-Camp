@@ -1,34 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('../components/headMeta.ejs') %>
-    <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="/navbar.css"> 
-    <title>Document</title>
-</head>
-<body>
-    <%- include('../components/navbar.ejs') %>
-    <main class="main-container-index">
-        
-        <div class="card">
-            <img src="<%= campground.image %>" alt="campground-image">
-            <span class="card-descriptions">
-                <h2><%= campground.title %></h2>
-                <p><%= campground.description %></p>
-                <small><%= campground.location %></small>
-                <div class="btn">
-                    <a href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
-                </div>
-            </span>
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mb-3">
+            <img src="<%= campground.image%>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= campground.title%></h5>
+                <p class="card-text"><%= campground.description%></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted"><%= campground.location%></li>
+                <li class="list-group-item">$<%= campground.price%>/night</li>
+            </ul>
+            <div class="card-body">
+                <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+                <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
         </div>
-
-        <a href="/campgrounds">Back</a>
-        <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-            <button>DELETE</button>
-        </form>
-    </main>
-    <%- include('../components/footer.ejs') %>
-
-</body>
-</html>
+    </div>
+</div>
