@@ -65,7 +65,7 @@ app.get('/campgrounds/:id/edit', async (request, response) => {
     response.render('campgrounds/edit', {campground})
 })
 
-app.patch('/campgrounds/:id', async (request, response) => {
+app.put('/campgrounds/:id', async (request, response) => {
     const {title, location, image, price, description} = request.body.campground
 
     if (title && location && image && price && description){
