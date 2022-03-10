@@ -40,13 +40,18 @@ app.get('/campgrounds/new', async (request, response) => {
     response.render('campgrounds/new')
 })
 
-app.post('/campgrounds', async (request, response) => {
+app.post('/campgrounds', async (request, response, next) => {
     const {title, location, image, price, description} = request.body.campground
 
     if (title && location && image && price && description){
-        const campground = await Campground(request.body.campground)
-        await campground.save()
-        response.redirect(`/campgrounds/${campground._id}`)
+        try {
+            const campground = await Campground(request.body.campground)
+            await campground.save()
+            response.redirect(`/campgrounds/${campground._id}`)
+        } catch (error) {
+            next(error)
+        }
+
     } else {
         console.log('Missing Data')
         response.redirect(`/campgrounds`)
@@ -84,7 +89,9 @@ app.delete('/campgrounds/:id', async (request, response) => {
     response.redirect('/campgrounds')
 })
 
-
+app.use((error, request, response, next) => {
+    response.send("Something went wrong!")
+})
 
 app.listen(8000, () => {
     console.log('Listening on port 8000')
